@@ -12,4 +12,5 @@ public interface AccountTransactionsRepository extends CrudRepository<AccountTra
 	
 	List<AccountTransactions> findByCustomerIdOrderByTransactionDtDesc(int customerId);
 
+/*	List<AccountTransactions> findByCustomerId(int customerId);*/
 }

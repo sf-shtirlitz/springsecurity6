@@ -23,7 +23,8 @@ public class Customer {
     @Column(name = "mobile_number")
     private String mobileNumber;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)//always have this prop as part of
+    // the request coming from the client, but never send to back to UI
     private String pwd;
 
     private String role;
@@ -31,8 +32,9 @@ public class Customer {
     @Column(name = "create_dt")
     private String createDt;
 
-    @JsonIgnore
-    @OneToMany(mappedBy="customer",fetch=FetchType.EAGER)
+    @JsonIgnore//this field will not be sent back to UI as part of JSON
+    @OneToMany(mappedBy="customer",fetch=FetchType.EAGER)//this means that whenever we try to load customer details
+    //also load the list of authorities from Authority table
     private Set<Authority> authorities;
 
     public int getId() {

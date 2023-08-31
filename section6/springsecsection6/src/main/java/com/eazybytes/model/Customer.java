@@ -2,7 +2,10 @@ package com.eazybytes.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
+
+import java.sql.Date;
 
 @Entity
 public class Customer {
@@ -26,7 +29,16 @@ public class Customer {
     private String role;
 
     @Column(name = "create_dt")
-    private String createDt;
+    @CreationTimestamp
+    private Date createDt;
+
+    public Date getCreateDt() {
+        return createDt;
+    }
+
+    public void setCreateDt(Date createDt) {
+        this.createDt = createDt;
+    }
 
     public int getId() {
         return id;
@@ -74,13 +86,5 @@ public class Customer {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public String getCreateDt() {
-        return createDt;
-    }
-
-    public void setCreateDt(String createDt) {
-        this.createDt = createDt;
     }
 }

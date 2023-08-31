@@ -44,6 +44,8 @@ public class JWTTokenGeneratorFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) {
         return !request.getServletPath().equals("/user");
     }
+    //this means that only during the login operation the JWT should be generated, so no execution for all other types
+    // of requests
 
     private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
         Set<String> authoritiesSet = new HashSet<>();

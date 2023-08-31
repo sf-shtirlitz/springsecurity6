@@ -12,6 +12,7 @@ import java.io.IOException;
 public class CsrfCookieFilter extends OncePerRequestFilter {
 
     @Override
+    //this method gets called every time request is received and it sets X-CSRF-TOKEN header of the request
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         CsrfToken csrfToken = (CsrfToken) request.getAttribute(CsrfToken.class.getName());

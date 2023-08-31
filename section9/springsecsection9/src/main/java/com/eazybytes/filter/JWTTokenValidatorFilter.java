@@ -52,5 +52,7 @@ public class JWTTokenValidatorFilter  extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) {
         return request.getServletPath().equals("/user");
     }
+    //this defines that this filter will execute everytime with every request except login operation. The opposite of
+    // what generator stage is doing
 
 }

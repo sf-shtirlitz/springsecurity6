@@ -14,6 +14,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+//this class is a custom implementation of the loadUserByUserName method from UserDetailsService and
+// this makes spring not use default JdbcUserDetailsManager class
 @Service
 public class EazyBankUserDetails implements UserDetailsService {
 
